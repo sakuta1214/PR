@@ -6,99 +6,91 @@
   <title>My Hobby Universe</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e0eafc, #cfdef3);
-      color: #111111;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      scroll-behavior: smooth;
     }
 
     header {
-      background: #5a2a82;
-      color: #fefefe;
-      padding: 1.2em 1em;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 8px rgba(90, 42, 130, 0.6);
-      z-index: 100;
-      position: relative;
+      z-index: 1000;
     }
 
     header h1 {
-      font-size: 2.4em;
-      letter-spacing: 2.5px;
-      margin: 0;
-      font-weight: 700;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      font-size: 2.5rem;
+      margin: 0 0 10px;
+      letter-spacing: 2px;
     }
 
     nav {
-      margin-top: 0.6em;
+      margin-top: 10px;
     }
 
     nav ul {
       list-style: none;
-      margin: 0;
       padding: 0;
+      margin: 0;
       display: flex;
       justify-content: center;
-      gap: 1.5em;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     nav a {
-      color: #dab6ff;
+      color: #ffd54f;
       text-decoration: none;
       font-weight: 600;
       padding: 8px 16px;
       border-radius: 25px;
-      background-color: rgba(218, 182, 255, 0.2);
+      background-color: rgba(255, 213, 79, 0.2);
       transition: background-color 0.3s ease, color 0.3s ease;
-      display: inline-block;
     }
 
-    nav a:hover,
-    nav a:focus {
-      background-color: #dab6ff;
-      color: #5a2a82;
-      box-shadow: 0 0 8px #dab6ff;
-      outline: none;
+    nav a:hover {
+      color: #fff;
+      background-color: #ffd54f;
+      text-shadow: 0 0 5px #ffd54f;
     }
 
-    /* ハンバーガーメニュー */
     .menu-toggle {
       display: none;
       position: absolute;
-      top: 1.3em;
-      right: 1em;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      z-index: 110;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
     }
 
     .menu-toggle span {
       display: block;
       height: 4px;
-      background: #dab6ff;
+      background: #ffd54f;
       border-radius: 2px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     .menu-toggle.active span:nth-child(1) {
       transform: rotate(45deg) translate(6px, 6px);
     }
+
     .menu-toggle.active span:nth-child(2) {
       opacity: 0;
     }
+
     .menu-toggle.active span:nth-child(3) {
       transform: rotate(-45deg) translate(6px, -6px);
     }
@@ -106,38 +98,31 @@
     @media (max-width: 600px) {
       nav ul {
         flex-direction: column;
-        background: #5a2a82;
-        position: fixed;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        height: calc(100% - 60px);
-        padding-top: 1em;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        box-shadow: -2px 0 8px rgba(90, 42, 130, 0.7);
-        border-radius: 8px 0 0 8px;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 180px;
+        padding: 20px 10px;
+        border-radius: 10px;
+        display: none;
       }
 
       nav ul.open {
-        transform: translateX(0);
-      }
-
-      nav li {
-        margin: 1em 0;
-        text-align: center;
-      }
-
-      nav a {
-        display: block;
-        margin: 0 auto;
-        width: fit-content;
-        padding: 10px 24px;
-        font-size: 1.1em;
+        display: flex;
       }
 
       .menu-toggle {
         display: flex;
+      }
+
+      nav a {
+        padding: 10px;
+        display: block;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
       }
     }
 
@@ -145,16 +130,15 @@
       flex: 1;
       padding: 40px 20px;
       max-width: 900px;
-      margin: 0 auto 40px;
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      color: #222222;
+      margin: 0 auto;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
     .intro h2 {
       font-size: 2rem;
-      border-bottom: 2px solid #5a2a82;
+      border-bottom: 2px solid #ffd54f;
       padding-bottom: 8px;
       margin-bottom: 20px;
     }
@@ -165,26 +149,25 @@
     }
 
     footer {
+      background-color: rgba(0,0,0,0.6);
+      color: #ccc;
       text-align: center;
-      padding: 1.2em;
-      background: #f2f2f2;
-      font-size: 0.9em;
-      color: #444444;
-      border-top: 1px solid #ddd;
-      margin-top: auto;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
     }
   </style>
 </head>
 <body>
   <header>
     <h1>🌌 My Hobby Universe 🌌</h1>
-    <button class="menu-toggle" aria-label="メニューを開閉" aria-expanded="false" aria-controls="primary-navigation">
+    <div class="menu-toggle" aria-label="メニュー切り替え" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
-    </button>
+    </div>
     <nav>
-      <ul id="primary-navigation">
+      <ul id="nav-links">
         <li><a href="index.html">ホーム</a></li>
         <li><a href="about.html">自己紹介</a></li>
         <li><a href="blog.html">ブログ</a></li>
@@ -205,22 +188,23 @@
   </footer>
 
   <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navUl = document.querySelector('nav ul');
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('nav-links');
 
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-      menuToggle.setAttribute('aria-expanded', !expanded);
-      menuToggle.classList.toggle('active');
-      navUl.classList.toggle('open');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      nav.classList.toggle('open');
+
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
     });
 
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => {
-        if (navUl.classList.contains('open')) {
-          menuToggle.classList.remove('active');
-          navUl.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', false);
+        if (nav.classList.contains('open')) {
+          toggle.classList.remove('active');
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', false);
         }
       });
     });
