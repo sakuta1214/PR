@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #e0eafc, #cfdef3);
   color: #111111; /* 黒に近い色 */
-  line-height: 1.65;
+  line-height: 1.75; /* 行間を少し広げて読みやすく */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,28 +39,37 @@ nav a {
   padding: 8px 16px;
   border-radius: 25px;
   background-color: rgba(218, 182, 255, 0.2);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
   display: inline-block;
+  /* クリック感用トランスフォームの準備 */
+  will-change: transform;
 }
 
+/* ホバー・フォーカス時のスタイル */
 nav a:hover,
 nav a:focus {
   background-color: #dab6ff;
   color: #5a2a82;
   text-decoration: none;
   box-shadow: 0 0 8px #dab6ff;
-  outline: none;
+  outline: 2px solid #dab6ff; /* フォーカス時にアウトラインで視認性UP */
+  outline-offset: 3px;
+}
+
+/* クリック時の縮小アニメーション */
+nav a:active {
+  transform: scale(0.95);
 }
 
 .intro {
   padding: 2.5em 2em;
   background: #fff;
-  margin: 3em auto;
+  margin: 4em auto 3em; /* 上マージンを少し増やしstickyヘッダーと被らないように */
   max-width: 720px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   color: #222222; /* 黒に近い色に変更 */
-  font-size: 1.1rem;
+  font-size: 1.15rem; /* 少し大きめフォント */
 }
 
 footer {
@@ -72,6 +81,7 @@ footer {
   border-top: 1px solid #ddd;
 }
 
+/* スマホ・小さい画面用 */
 @media (max-width: 600px) {
   .intro {
     padding: 1.5em 1.2em;
@@ -88,5 +98,41 @@ footer {
 
   header h1 {
     font-size: 1.8em;
+  }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: #eee;
+  }
+  header {
+    background-color: rgba(0,0,0,0.8);
+    color: #ddd;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  }
+  header h1 {
+    text-shadow: 0 1px 3px rgba(255,255,255,0.3);
+  }
+  nav a {
+    background-color: rgba(218, 182, 255, 0.3);
+    color: #cbbcff;
+  }
+  nav a:hover,
+  nav a:focus {
+    background-color: #dab6ff;
+    color: #5a2a82;
+    box-shadow: 0 0 8px #dab6ff;
+  }
+  .intro {
+    background: #222;
+    color: #eee;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+  }
+  footer {
+    background: #111;
+    color: #ccc;
+    border-top: 1px solid #333;
   }
 }
