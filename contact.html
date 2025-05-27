@@ -2,11 +2,160 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>お問い合わせ - My Hobby Universe</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 10px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      color: #ffd54f;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #ffd54f;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid #ffd54f;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: #ffd54f;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: 2px solid #ffd54f;
+      background-color: #fff;
+      color: #000;
+    }
+
+    button {
+      background-color: #ffd54f;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a2a6c;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #f0c419;
+    }
+
+    #thank-you {
+      margin-top: 2em;
+      font-weight: bold;
+      color: #a6ff00;
+      text-align: center;
+      font-size: 1.2rem;
+      display: none;
+    }
+
+    footer {
+      background-color: rgba(0,0,0,0.6);
+      color: #ccc;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+      main {
+        padding: 25px 15px;
+        border-radius: 8px;
+        max-width: 95%;
+      }
+      .intro h2 {
+        font-size: 1.6rem;
+      }
+      .intro p {
+        font-size: 1rem;
+      }
+      button {
+        font-size: 1rem;
+        padding: 10px 0;
+      }
+    }
+  </style>
   <script>
-    // フォーム送信成功後、メッセージ表示
     window.addEventListener("DOMContentLoaded", () => {
       const form = document.querySelector("form");
       const thankYou = document.getElementById("thank-you");
@@ -30,7 +179,7 @@
           } else {
             alert("エラーが発生しました。もう一度お試しください。");
           }
-        }).catch(error => {
+        }).catch(() => {
           alert("送信に失敗しました。ネットワークをご確認ください。");
         });
       });
@@ -51,24 +200,22 @@
   <main>
     <section class="intro">
       <h2>お問い合わせ</h2>
-      <p>ご質問・ご感想など、気軽にお送りください。</p>
+      <p>ご質問・ご感想など、お気軽にお送りください。</p>
 
       <form action="https://formspree.io/f/mpwdgyqa" method="POST">
-        <label for="name">お名前<br></label>
+        <label for="name">お名前</label>
         <input type="text" id="name" name="name" required />
 
-        <label for="email"><br>メールアドレス<br></label>
+        <label for="email">メールアドレス</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="message"><br>メッセージ<br></label>
+        <label for="message">メッセージ</label>
         <textarea id="message" name="message" rows="6" required></textarea>
 
-        <button type="submit"><br>送信する<br></button>
+        <button type="submit">送信する</button>
       </form>
 
-      <div id="thank-you" style="display:none; margin-top:2em; font-weight:bold; color:green;">
-        ✅ メッセージを受け取りました。ありがとうございます！
-      </div>
+      <div id="thank-you">✅ メッセージを受け取りました。ありがとうございます！</div>
     </section>
   </main>
 
