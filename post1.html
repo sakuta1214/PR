@@ -1,10 +1,108 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>山奥のキャンプ日記 - My Hobby Universe</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: #fff;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 10px;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #ffd54f;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #ffd54f;
+    }
+
+    main {
+      flex: 1;
+      max-width: 800px;
+      background-color: rgba(0,0,0,0.3);
+      margin: 30px auto 40px;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid #ffd54f;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .intro p em {
+      font-style: italic;
+      color: #ffe082;
+      display: block;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: rgba(0,0,0,0.6);
+      color: #ccc;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+      main {
+        margin: 20px 15px 30px;
+        padding: 20px 15px;
+        border-radius: 8px;
+      }
+      .intro h2 {
+        font-size: 1.6rem;
+      }
+      .intro p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -21,9 +119,9 @@
     <section class="intro">
       <h2>山奥のキャンプ日記（2025年5月）</h2>
       <p>2025年5月某日、山梨のとある秘境へキャンプに行ってきました。</p>
-      <p>星空がとにかくすごかった…！そして虫もすごかった（笑）</p>
+      <p>星空がとにかくすごかった…！そして虫もすごかった（笑）。</p>
       <p>次回はもっと良い焚き火台を持っていこうと思います。</p>
-      <p>📸 <em>使用カメラ：FUJIFILM X-T5</em></p>
+      <p><em>📸 使用カメラ：FUJIFILM X-T5</em></p>
     </section>
   </main>
 
