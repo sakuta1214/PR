@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>お問い合わせ - My Hobby Universe</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // フォーム送信成功後、メッセージ表示
+    window.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("form");
+      const thankYou = document.getElementById("thank-you");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const action = form.action;
+
+        fetch(action, {
+          method: "POST",
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            form.reset();
+            form.style.display = "none";
+            thankYou.style.display = "block";
+          } else {
+            alert("エラーが発生しました。もう一度お試しください。");
+          }
+        }).catch(error => {
+          alert("送信に失敗しました。ネットワークをご確認ください。");
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>🌌 My Hobby Universe 🌌</h1>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="about.html">自己紹介</a>
+      <a href="blog.html">ブログ</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>お問い合わせ</h2>
+      <p>ご質問・ご感想など、気軽にお送りください。</p>
+
+      <form action="https://formspree.io/f/XXXXXXXX" method="POST">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">メッセージ</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit">送信する</button>
+      </form>
+
+      <div id="thank-you" style="display:none; margin-top:2em; font-weight:bold; color:green;">
+        ✅ メッセージを受け取りました。ありがとうございます！
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Hobby Universe</p>
+  </footer>
+</body>
+</html>
